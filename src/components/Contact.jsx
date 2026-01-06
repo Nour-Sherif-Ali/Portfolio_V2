@@ -8,6 +8,8 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
 const Contact = () => {
+  const adminName = "Nour Sherif";
+  const adminEmail = "noursherif619@gmail.com";
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -16,6 +18,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     const { target } = e;
@@ -27,41 +30,82 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus({ type: "", message: "" });
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+    try {
+      const trimmed = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        message: form.message.trim(),
+      };
+
+      if (!trimmed.name || !trimmed.email || !trimmed.message) {
+        setStatus({
+          type: "error",
+          message: "Please fill in your name, email, and message.",
+        });
+        setLoading(false);
+        return;
+      }
+
+      const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+      const autoReplyTemplateId =
+        import.meta.env.VITE_APP_EMAILJS_AUTOREPLY_TEMPLATE_ID;
+
+      // 1) Hard fail early if env vars are missing
+      if (!serviceId || !templateId || !publicKey || !autoReplyTemplateId) {
+        throw new Error("Missing EmailJS environment variables.");
+      }
+
+      const adminSubject = `New message from ${trimmed.name}`;
+      const autoReplySubject = `Thanks for reaching out, ${trimmed.name}!`;
+
+      // 2) Send admin notification (template expects: name, reply_to, subject, message)
+      await emailjs.send(
+        serviceId,
+        templateId,
         {
-          from_name: form.name,
-          to_name: "JavaScript Mastery",
-          from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
-          message: form.message,
+          name: trimmed.name,
+          reply_to: trimmed.email,
+          subject: adminSubject,
+          message: trimmed.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
+        publicKey
       );
+
+      // 3) Send auto-reply to user (template expects: from_name, reply_to, subject, message)
+      await emailjs.send(
+        serviceId,
+        autoReplyTemplateId,
+        {
+          from_name: trimmed.name,
+          reply_to: adminEmail,
+          subject: autoReplySubject,
+          message: trimmed.message,
+        },
+        publicKey
+      );
+
+      setStatus({
+        type: "success",
+        message: "Thank you. I will get back to you as soon as possible.",
+      });
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      const fallbackMessage = "Ahh, something went wrong. Please try again.";
+      const errorMessage =
+        err?.text || err?.message || err?.toString?.() || fallbackMessage;
+      console.error("EmailJS error:", err);
+      setStatus({ type: "error", message: errorMessage });
+    } finally {
+      // IMPORTANT: always stop loading even if request hangs/crashes
+      setLoading(false);
+    }
   };
 
   return (
@@ -88,6 +132,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
+              required
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -99,6 +144,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
+              required
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -110,6 +156,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
+              required
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -120,6 +167,15 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send"}
           </button>
+          {status.message ? (
+            <p
+              className={`text-sm ${
+                status.type === "success" ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {status.message}
+            </p>
+          ) : null}
         </form>
       </motion.div>
 

@@ -5,24 +5,21 @@ import {
   web,
   javascript,
   typescript,
+  angular,
   html,
   css,
   reactjs,
   redux,
   tailwind,
+  bootstrap,
   nodejs,
   mongodb,
+  sqlServer,
   git,
-  figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
   carrent,
   jobit,
   tripguide,
-  threejs,
 } from "../assets";
 
 export const navLinks = [
@@ -42,19 +39,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Angular Developer",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "React Developer",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "Asp.Net Core",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Node.js Developer",
     icon: creator,
   },
 ];
@@ -77,16 +74,20 @@ const technologies = [
     icon: typescript,
   },
   {
+    name: "Angular",
+    icon: angular,
+  },
+  {
     name: "React JS",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
     name: "Tailwind CSS",
     icon: tailwind,
+  },
+  {
+    name: "Bootstrap",
+    icon: bootstrap,
   },
   {
     name: "Node JS",
@@ -97,102 +98,106 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "Microsoft SQL Server",
+    icon: sqlServer,
   },
   {
     name: "git",
     icon: git,
   },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
 ];
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
+    title: "Online Programming & Database Instructor",
+    company_name: "University Students (Online)",
+    icon: creator,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "Sep 2025 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Teaching university students core programming and database subjects to support their academic performance.",
+      "Explaining database fundamentals and SQL concepts including queries, joins, and relational design in a simplified, practical manner.",
+      "Teaching programming languages such as C++ and Java according to university curriculum.",
+      "Helping students understand problem-solving techniques and programming logic to achieve high grades and academic excellence.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
+    title: "Front-End Developer (Angular) Intern",
+    company_name: "Elevvo Pathway Remote - Cairo, Egypt",
+    icon: web,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "Jul 2025 - Aug 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built responsive and scalable front-end components using Angular, TypeScript, HTML, and CSS, ensuring strong performance and clean code structure.",
+      "Improved UI/UX workflows and contributed reusable modules to enhance consistency across the platform.",
+      "Recognized as a high-impact contributor and awarded an additional certificate for outstanding performance and active participation during the internship.",
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "IT & Voice Systems Intern",
+    company_name: "Agricultural Bank of Egypt Onsite - Cairo, Egypt",
+    icon: mobile,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "Jul 2024 - Dec 2024",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Managed Cisco voice accounts and supported backend IT infrastructure troubleshooting.",
+    ],
+  },
+  {
+    title: "Data Integration & API Intern",
+    company_name: "BVS Remote - Cairo, Egypt",
+    icon: backend,
+    iconBg: "#383E56",
+    date: "Mar 2024 - May 2024",
+    points: [
+      "Validated and optimized REST APIs using Postman.",
+      "Worked on backend data pipelines ensuring integration with SQL Server and Entity Framework.",
+    ],
+  },
+  {
+    title: "NLP & AI Intern",
+    company_name: "NajahNow Remote - Cairo, Egypt",
+    icon: backend,
+    iconBg: "#E6DEDD",
+    date: "Jan 2024 - Apr 2024",
+    points: [
+      "Built a healthcare chatbot using NLP integrated with backend services and APIs.",
     ],
   },
 ];
 
-const testimonials = [
+const highlights = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    title: "Clean Architecture",
+    detail:
+      "Build modular, testable systems with clear boundaries that scale with your product.",
+    focus: "Architecture",
+    tools: "ASP.NET Core, Angular, Node.js , React",
+    icon: backend,
   },
   {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    title: "Performance",
+    detail:
+      "Optimize load time and runtime behavior for smooth, responsive experiences.",
+    focus: "Performance",
+    tools: "Angular, React",
+    icon: reactjs,
   },
   {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    title: "API Design",
+    detail:
+      "Design RESTful APIs that are predictable, secure, and easy to integrate.",
+    focus: "Backend",
+    tools: "ASP.NET Core, Node.js",
+    icon: nodejs,
+  },
+  {
+    title: "UI Craft",
+    detail:
+      "Deliver polished, accessible interfaces that translate business needs into user value.",
+    focus: "Frontend",
+    tools: "Tailwind CSS, SCSS, Bootstrap",
+    icon: web,
   },
 ];
 
@@ -200,66 +205,73 @@ const projects = [
   {
     name: "Car Rent",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Car rental platform that lets users browse, book, and manage rentals with a fast, responsive UI.",
     tags: [
       {
-        name: "react",
+        name: "Angular",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "RestApi using .NET",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Tailwind",
         color: "pink-text-gradient",
       },
     ],
     image: carrent,
-    source_code_link: "https://github.com/",
+    source_code_link:
+      "https://github.com/Nour-Sherif-Ali/Car-Rental-System.git",
   },
   {
-    name: "Job IT",
+    name: "E-Commerce",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "E-commerce web app with product browsing, cart, and checkout flows tailored for smooth shopping.",
     tags: [
       {
-        name: "react",
+        name: "Angular",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "SCSS",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "REST API using ASP.NET",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Tailwind",
         color: "pink-text-gradient",
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link:
+      "https://github.com/Nour-Sherif-Ali/E-Commerce-Project.git",
   },
   {
     name: "Trip Guide",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Travel planner that helps users explore destinations and organize trips with curated guides.",
     tags: [
       {
-        name: "nextjs",
+        name: "Angular",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "SCSS",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "Tailwind",
         color: "pink-text-gradient",
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link:
+      "https://github.com/Nour-Sherif-Ali/Travel-Planner-.git",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, highlights, projects };

@@ -1,11 +1,11 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF(`${import.meta.env.BASE_URL}desktop_pc/scene.gltf`);
 
   return (
     <mesh>
@@ -55,6 +55,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
+      className='w-full h-full'
       frameloop='demand'
       shadows
       dpr={[1, 2]}
@@ -70,7 +71,6 @@ const ComputersCanvas = () => {
         <Computers isMobile={isMobile} />
       </Suspense>
 
-      <Preload all />
     </Canvas>
   );
 };

@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./mainLogo.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -13,11 +13,14 @@ import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
+import angular from "./tech/Angular.png";
 import mongodb from "./tech/mongodb.png";
+import sqlServer from "./tech/sqlServer.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
+import bootstrap from "./tech/Bootstrap.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
@@ -45,11 +48,14 @@ export {
   git,
   html,
   javascript,
+  angular,
   mongodb,
+  sqlServer,
   nodejs,
   reactjs,
   redux,
   tailwind,
+  bootstrap,
   typescript,
   threejs,
   meta,
